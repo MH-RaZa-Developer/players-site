@@ -8,8 +8,17 @@ const Home = () => {
     const [cart, setCart] = useState([]);
 
     const handleAdd = (player) =>{
-        const oldCart = [...cart, player];
-        setCart(oldCart);
+
+        const existingId = cart.find(pd => pd.id === player.id);
+
+        if(existingId)
+        {
+            alert("Player Already Added!!");
+        }else{
+            const oldCart = [...cart, player];
+            setCart(oldCart);
+        }
+        
     }
 
     let salarySum = 0;
